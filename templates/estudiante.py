@@ -1,11 +1,11 @@
 import csv
 
 class Estudiante:
-    def __init__(self, provincia, puntaje_matematica, puntaje_lengua, puntaje_nse, ambito, sector):
+    def __init__(self, provincia: str, puntaje_matematica: str, puntaje_lengua: str, puntaje_nse: str, ambito: str, sector: str):
         '''
         Requiere: nada.
         Devuelve: nada.
-        Modifica: nada.
+        Modifica: los atributos del objeto con los valores dados.
         '''
         self.provincia: str = provincia
         self.puntaje_matematica: float = float(puntaje_matematica)
@@ -17,7 +17,7 @@ class Estudiante:
     def __repr__(self) -> str:
         '''
         Requiere: nada.
-        Devuelve: Un string con las caracteristicas del estudiante: su puntaje en matematica, seguido del puntaje de lengua, seguido de su puntaje de NSE, luego el ambito, sector y provincia del mismo.
+        Devuelve: Un string con las caracteristicas del estudiante: su puntaje en matematica, seguido del puntaje de lengua, seguido de su puntaje de NSE (todos los puntajes con 2 decimales maximo), luego el ambito, sector y provincia del mismo.
         Modifica: nada.
         '''
         return (f"<Mat:{self.puntaje_matematica:.2f}, " f"Len:{self.puntaje_lengua:.2f}, " f"NSE:{self.puntaje_nse:.2f}, " f"{self.ambito}, {self.sector}, {self.provincia}>")
