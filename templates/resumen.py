@@ -18,17 +18,13 @@ class Resumen:
         Devuelve: Un string con las caracteristicas del resumen: el promedio en matematica, seguido del promedio de lengua, seguido de promedio en NSE (todos los promedios con 2 decimales maximo), luego la proporción de estudiantes que van a una escuela del sector estatal, proporción de estudiantes que van a una escuela en el ámbito rural y la cantidad de estudiantes considerada en el resumen.
         Modifica: nada.
         '''
-        return (f"<Mat:{self.promedio_matematica:.2f}, " f"Len:{self.promedio_lengua:.2f}, " f"NSE:{self.promedio_nse:.2f}, " f"Rural:{self.proporcion_ambito_rural:.2f}, " f"Estado:{self.proporcion_sector_estatal:.2f}, " f"N:{self.cantidad}")
+        return (f"<Mat:{round(self.promedio_matematica, 2)}, " f"Len:{round(self.promedio_lengua, 2)}, " f"NSE:{round(self.promedio_nse, 2)}, " f"Rural:{round(self.proporcion_ambito_rural, 2)}, " f"Estado:{round(self.proporcion_sector_estatal, 2)}, " f"N:{self.cantidad}")
 
-    def __eq__(self, r2: "Resumen") -> ...:
+    def __eq__(self, r2: "Resumen") -> bool:
         '''
         Requiere: nada.
         Devuelve: True si los dos resumenes son iguales, teniendo en cuenta una tolerancia de 0.001 en sus promedios y proporciones, False en caso contrario.
         Modifica: nada.
         '''
-        vr: bool = False
         tolerancia: float = 0.001
-        if self.cantidad == r2.cantidad and abs(self.promedio_matematica - r2.promedio_matematica) < tolerancia and abs(self.promedio_lengua - r2.promedio_lengua) < tolerancia and abs(self.promedio_nse - r2.promedio_nse) < tolerancia and abs(self.proporcion_ambito_rural - r2.proporcion_ambito_rural) < tolerancia and abs(self.proporcion_sector_estatal - r2.proporcion_sector_estatal) < tolerancia:
-            vr = True
-        return vr
-
+        return (self.cantidad == r2.cantidad and abs(self.promedio_matematica - r2.promedio_matematica) < tolerancia and abs(self.promedio_lengua - r2.promedio_lengua) < tolerancia and abs(self.promedio_nse - r2.promedio_nse) < tolerancia and abs(self.proporcion_ambito_rural - r2.proporcion_ambito_rural) < tolerancia and abs(self.proporcion_sector_estatal - r2.proporcion_sector_estatal) < tolerancia)

@@ -20,7 +20,7 @@ class Estudiante:
         Devuelve: Un string con las caracteristicas del estudiante: su puntaje en matematica, seguido del puntaje de lengua, seguido de su puntaje de NSE (todos los puntajes con 2 decimales maximo), luego el ambito de la escuela, el sector y provincia de la misma.
         Modifica: nada.
         '''
-        return (f"<Mat:{self.puntaje_matematica:.2f}, " f"Len:{self.puntaje_lengua:.2f}, " f"NSE:{self.puntaje_nse:.2f}, " f"{self.ambito}, {self.sector}, {self.provincia}>")
+        return (f"<Mat:{round(self.puntaje_matematica, 2)}, " f"Len:{round(self.puntaje_lengua, 2)}, " f"NSE:{round(self.puntaje_nse, 2)}, " f"{self.ambito}, {self.sector}, {self.provincia}>")
     
     def __eq__(self, e2: "Estudiante") -> bool:
         '''
@@ -37,18 +37,18 @@ class Estudiante:
 
 estudiantes = []
 
-with open('./datos_chico.csv') as f:
-    reader = csv.DictReader(f)
-    for fila in reader:
-        estudiante = Estudiante(
-            provincia=fila['provincia'],
-            puntaje_matematica=float(fila['mpuntaje']),
-            puntaje_lengua=float(fila['lpuntaje']),
-            puntaje_nse=float(fila['NSE_puntaje']),
-            ambito=fila['ambito'],
-            sector=fila['sector']
-        )
-        estudiantes.append(estudiante)
+archivo = open('./datos_chico.csv', 'r')
+filas = csv.DictReader(archivo)
+for fila in filas:
+    estudiante = Estudiante(
+        provincia=fila['provincia'],
+        puntaje_matematica=float(fila['mpuntaje']),
+        puntaje_lengua=float(fila['lpuntaje']),
+        puntaje_nse=float(fila['NSE_puntaje']),
+        ambito=fila['ambito'],
+        sector=fila['sector']
+    )
+    estudiantes.append(estudiante)
 
 for i in range(len(estudiantes)):
     for j in range(i + 1, len(estudiantes)):
