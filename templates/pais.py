@@ -9,7 +9,7 @@ class Pais:
         Devuelve: nada.
         Modifica: se le crea un atributo al objeto con todos los estudiantes dentro del archivo_csv.
         '''
-        self.estudiantes = []
+        self.estudiantes: list[Estudiante] = []
         archivo = open(archivo_csv)
         filas = csv.DictReader(archivo)
         for fila in filas:
@@ -23,7 +23,7 @@ class Pais:
             )
             self.estudiantes.append(estudiante)
 
-        provincias = set()
+        provincias: set[str] = set()
         for estudiante in self.estudiantes:
             provincias.add(estudiante.provincia)
 
