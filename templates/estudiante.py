@@ -1,5 +1,3 @@
-import csv
-
 class Estudiante:
     def __init__(self, provincia: str, puntaje_matematica: str, puntaje_lengua: str, puntaje_nse: str, ambito: str, sector: str):
         '''
@@ -33,28 +31,3 @@ class Estudiante:
         if self.provincia == e2.provincia and self.ambito == e2.ambito and self.sector == e2.sector and abs(self.puntaje_matematica - e2.puntaje_matematica) < tolerancia and abs(self.puntaje_lengua - e2.puntaje_lengua) < tolerancia and abs(self.puntaje_nse - e2.puntaje_nse) < tolerancia:
             vr = True
         return vr
-
-
-estudiantes = []
-
-archivo = open('./datos_chico.csv', 'r')
-filas = csv.DictReader(archivo)
-for fila in filas:
-    estudiante = Estudiante(
-        provincia=fila['provincia'],
-        puntaje_matematica=float(fila['mpuntaje']),
-        puntaje_lengua=float(fila['lpuntaje']),
-        puntaje_nse=float(fila['NSE_puntaje']),
-        ambito=fila['ambito'],
-        sector=fila['sector']
-    )
-    estudiantes.append(estudiante)
-
-for i in range(len(estudiantes)):
-    for j in range(i + 1, len(estudiantes)):
-        if estudiantes[i] == estudiantes[j]:
-            print(f'Estudiante {i+1} y Estudiante {j+1} son iguales')
-            print(estudiantes[i])
-            print(estudiantes[j])
-        else:
-            pass
