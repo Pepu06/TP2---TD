@@ -17,8 +17,8 @@ class TestEstudiante(unittest.TestCase):
         self.assertEqual(e.sector, "estatal")
     
     def test_repr_estudiante(self):
-        e = Estudiante("CHU", 100.10, 200.20, 300.30, "urbano", "estatal")
-        esperado = "<Mat:100.10, Len:200.20, NSE:300.30, urbano, estatal, CHU>"
+        e = Estudiante("CHU", 100.11, 200.22, 300.33, "urbano", "estatal")
+        esperado = "<Mat:100.11, Len:200.22, NSE:300.33, urbano, estatal, CHU>"
         self.assertEqual(repr(e), esperado)
 
     def test_estudiantes_iguales(self):
@@ -51,7 +51,6 @@ class TestEstudiante(unittest.TestCase):
         e2 = Estudiante("CHU", 500.0, 400.0, 1.0, "urbano", "privado")
         self.assertNotEqual(e1, e2)
 
-## y asi con el resto de los metodos a testear.
         
 ####################################################################
 

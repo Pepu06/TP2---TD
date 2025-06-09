@@ -20,11 +20,11 @@ class Resumen:
         '''
         return (f"<Mat:{round(self.promedio_matematica, 2)}, " f"Len:{round(self.promedio_lengua, 2)}, " f"NSE:{round(self.promedio_nse, 2)}, " f"Rural:{round(self.proporcion_ambito_rural, 2)}, " f"Estado:{round(self.proporcion_sector_estatal, 2)}, " f"N:{self.cantidad}")
 
-    def __eq__(self, r2: "Resumen") -> bool:
+    def __eq__(self, other) -> bool:
         '''
         Requiere: nada.
         Devuelve: True si los dos resumenes son iguales, teniendo en cuenta una tolerancia de 0.001 en sus promedios y proporciones, False en caso contrario.
         Modifica: nada.
         '''
         tolerancia: float = 0.001
-        return (self.cantidad == r2.cantidad and abs(self.promedio_matematica - r2.promedio_matematica) < tolerancia and abs(self.promedio_lengua - r2.promedio_lengua) < tolerancia and abs(self.promedio_nse - r2.promedio_nse) < tolerancia and abs(self.proporcion_ambito_rural - r2.proporcion_ambito_rural) < tolerancia and abs(self.proporcion_sector_estatal - r2.proporcion_sector_estatal) < tolerancia)
+        return (self.cantidad == other.cantidad and abs(self.promedio_matematica - other.promedio_matematica) < tolerancia and abs(self.promedio_lengua - other.promedio_lengua) < tolerancia and abs(self.promedio_nse - other.promedio_nse) < tolerancia and abs(self.proporcion_ambito_rural - other.proporcion_ambito_rural) < tolerancia and abs(self.proporcion_sector_estatal - other.proporcion_sector_estatal) < tolerancia)

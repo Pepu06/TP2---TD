@@ -20,7 +20,7 @@ class Estudiante:
         '''
         return (f"<Mat:{round(self.puntaje_matematica, 2)}, " f"Len:{round(self.puntaje_lengua, 2)}, " f"NSE:{round(self.puntaje_nse, 2)}, " f"{self.ambito}, {self.sector}, {self.provincia}>")
     
-    def __eq__(self, e2: "Estudiante") -> bool:
+    def __eq__(self, other) -> bool:
         '''
         Requiere: nada.
         Devuelve: True si los dos estudiantes son iguales, teniendo en cuenta una tolerancia de 0.001 en sus puntajes, False en caso contrario.
@@ -28,6 +28,6 @@ class Estudiante:
         '''
         vr: bool = False
         tolerancia: float = 0.001
-        if self.provincia == e2.provincia and self.ambito == e2.ambito and self.sector == e2.sector and abs(self.puntaje_matematica - e2.puntaje_matematica) < tolerancia and abs(self.puntaje_lengua - e2.puntaje_lengua) < tolerancia and abs(self.puntaje_nse - e2.puntaje_nse) < tolerancia:
+        if self.provincia == other.provincia and self.ambito == other.ambito and self.sector == other.sector and abs(self.puntaje_matematica - other.puntaje_matematica) < tolerancia and abs(self.puntaje_lengua - other.puntaje_lengua) < tolerancia and abs(self.puntaje_nse - other.puntaje_nse) < tolerancia:
             vr = True
         return vr
