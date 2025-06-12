@@ -37,8 +37,8 @@ class TestResumen(unittest.TestCase):
         self.assertFalse(Resumen.__eq__(r1, r2))
 
     def test_repr_redondeo(self):
-        r = Resumen(1, 9.995, 0.02, 10.01, 0.99, 0.01)
-        esperado = "<Mat:9.99, Len:0.02, NSE:10.01, Rural:0.99, Estado:0.01, N:1>"
+        r = Resumen(1, 9.99232, 0.01340202, 10.01912121, 0.99, 0.01)
+        esperado = "<Mat:9.99, Len:0.01, NSE:10.02, Rural:0.99, Estado:0.01, N:1>"
         self.assertEqual(repr(r), esperado)
 
     def test_eq_true_muchos_redondeos(self):
