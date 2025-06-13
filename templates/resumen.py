@@ -1,16 +1,39 @@
+from estudiante import Estudiante
+
 class Resumen:
-    def __init__(self, cantidad: int, promedio_matematica: float, promedio_lengua: float, promedio_nse: float, proporcion_ambito_rural: float, proporcion_sector_estatal: float):
+    def __init__(self, estudiantes: list[Estudiante]):
         '''
         Requiere: 0.0 <= proporcion_ambito_rural <= 1.0. 0.0 <= proporcion_sector_estatal <= 1.0
         Devuelve: nada.
         Modifica: los atributos del objeto con los valores dados.
         '''
-        self.cantidad = cantidad
+        self.cantidad = len(estudiantes)
+
+        total_mate: float = 0
+        total_len: float = 0
+        total_nse: float = 0
+        total_rural: float = 0
+        total_estatal: float = 0
+        for estudiante in estudiantes:
+            total_mate += estudiante.puntaje_matematica
+            total_len += estudiante.puntaje_lengua
+            total_nse += estudiante.puntaje_nse
+            if estudiante.ambito == 'rural':
+                total_rural += 1
+            if estudiante.sector == 'estatal':
+                total_estatal += 1
+
+        promedio_matematica: float = total_mate / self.cantidad
+        promedio_lengua: float = total_len / self.cantidad
+        promedio_nse: float = total_nse / self.cantidad
+        proporcion_rural: float = total_rural / self.cantidad
+        proporcion_estatal: float = total_estatal / self.cantidad
+
         self.promedio_matematica = promedio_matematica
         self.promedio_lengua = promedio_lengua
         self.promedio_nse = promedio_nse
-        self.proporcion_ambito_rural = proporcion_ambito_rural
-        self.proporcion_sector_estatal = proporcion_sector_estatal
+        self.proporcion_ambito_rural = proporcion_rural
+        self.proporcion_sector_estatal = proporcion_estatal
 
     def __repr__(self) -> str:
         '''
@@ -27,4 +50,5 @@ class Resumen:
         Modifica: nada.
         '''
         tolerancia: float = 0.001
+
         return (self.cantidad == other.cantidad and abs(self.promedio_matematica - other.promedio_matematica) < tolerancia and abs(self.promedio_lengua - other.promedio_lengua) < tolerancia and abs(self.promedio_nse - other.promedio_nse) < tolerancia and abs(self.proporcion_ambito_rural - other.proporcion_ambito_rural) < tolerancia and abs(self.proporcion_sector_estatal - other.proporcion_sector_estatal) < tolerancia)

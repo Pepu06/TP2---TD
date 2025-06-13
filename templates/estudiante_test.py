@@ -51,6 +51,14 @@ class TestEstudiante(unittest.TestCase):
         e2 = Estudiante("CHU", 500.0, 400.0, 1.0, "urbano", "privado")
         self.assertNotEqual(e1, e2)
 
+    def estudiante_vacio(self):
+        e = Estudiante('', 0, 0, 0, '', '')
+        esperado = "<Mat:, Len:, NSE:, , , >"
+        self.assertEqual(repr(e), esperado)
+        e2 = Estudiante('', 0, 0, 0, '', '')
+        esperado2 = "<Mat:0, Len:0, NSE:0, , , >"
+        self.assertEqual(repr(e2), esperado2)
+
         
 ####################################################################
 

@@ -49,29 +49,7 @@ class Pais:
             if estudiante.provincia == provincia:
                 filtrados.append(estudiante)
 
-        cantidad: int = len(filtrados)
-
-        total_mate: float = 0
-        total_len: float = 0
-        total_nse: float = 0
-        total_rural: float = 0
-        total_estatal: float = 0
-        for estudiante in filtrados:
-            total_mate += estudiante.puntaje_matematica
-            total_len += estudiante.puntaje_lengua
-            total_nse += estudiante.puntaje_nse
-            if estudiante.ambito == 'Rural':
-                total_rural += 1
-            if estudiante.sector == 'Estatal':
-                total_estatal += 1
-
-        promedio_matematica: float = total_mate / cantidad
-        promedio_lengua: float = total_len / cantidad
-        promedio_nse: float = total_nse / cantidad
-        proporcion_rural: float = total_rural / cantidad
-        proporcion_estatal: float = total_estatal / cantidad
-
-        return Resumen(cantidad, promedio_matematica, promedio_lengua, promedio_nse, proporcion_rural, proporcion_estatal)
+        return Resumen(filtrados)
     
     def resumenes_pais(self) -> dict[str, Resumen]:
         '''
