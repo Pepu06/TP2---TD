@@ -111,16 +111,3 @@ class Pais:
                 'proporcion_ambito_rural': resumen.proporcion_ambito_rural,
                 'proporcion_sector_estatal': resumen.proporcion_sector_estatal,
             })
-
-
-
-
-p = Pais('./filtrado_CHA_SFE.csv')
-
-print(p.tamano())
-print(p.provincias)
-print(p.resumen_provincia('SFE'))
-print(p.resumenes_pais())
-resultado = p.estudiantes_en_intervalo('mat', 600, 601, {'MZA', 'SFE'})
-print("Cantidad de estudiantes con matemática entre 600 y 601:", resultado)
-p.exportar_por_provincias('hola.csv', ['SFE', 'CHA'])

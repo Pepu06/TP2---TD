@@ -18,9 +18,9 @@ class Resumen:
             total_mate += estudiante.puntaje_matematica
             total_len += estudiante.puntaje_lengua
             total_nse += estudiante.puntaje_nse
-            if estudiante.ambito == 'rural':
+            if estudiante.ambito.lower() == 'rural':
                 total_rural += 1
-            if estudiante.sector == 'estatal':
+            if estudiante.sector.lower() == 'estatal':
                 total_estatal += 1
 
         promedio_matematica: float = total_mate / self.cantidad
