@@ -41,7 +41,7 @@ class Resumen:
         Devuelve: Un string con las caracteristicas del resumen: el promedio en matematica, seguido del promedio de lengua, seguido de promedio en NSE (todos los promedios con 2 decimales maximo), luego la proporción de estudiantes que van a una escuela del sector estatal, proporción de estudiantes que van a una escuela en el ámbito rural y la cantidad de estudiantes considerada en el resumen.
         Modifica: nada.
         '''
-        return (f"<Mat:{round(self.promedio_matematica, 2)}, " f"Len:{round(self.promedio_lengua, 2)}, " f"NSE:{round(self.promedio_nse, 2)}, " f"Rural:{round(self.proporcion_ambito_rural, 2)}, " f"Estado:{round(self.proporcion_sector_estatal, 2)}, " f"N:{self.cantidad}>")
+        return (f"<Mat:{self.promedio_matematica:.2f}, " f"Len:{self.promedio_lengua:.2f}, " f"NSE:{self.promedio_nse:.2f}, " f"Rural:{self.proporcion_ambito_rural:.2f}, " f"Estado:{self.proporcion_sector_estatal:.2f}, " f"N:{self.cantidad}>")
 
     def __eq__(self, other) -> bool:
         '''

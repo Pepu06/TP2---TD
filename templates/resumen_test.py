@@ -46,7 +46,7 @@ class TestResumen(unittest.TestCase):
             Estudiante('CHU', 8.967, 3.544, 4.369, 'urbano', 'privado'),
         ]
         r = Resumen(estudiantes)
-        esperado = "<Mat:8.97, Len:3.54, NSE:4.37, Rural:0.2, Estado:0.8, N:5>"
+        esperado = "<Mat:8.97, Len:3.54, NSE:4.37, Rural:0.20, Estado:0.80, N:5>"
         self.assertEqual(repr(r), esperado)
         
         estudiantes2: list[Estudiante] = [
@@ -56,7 +56,7 @@ class TestResumen(unittest.TestCase):
             Estudiante('CHU', 7.50, 4.50, 6.5, 'urbano', 'privado'),
         ]
         r2 = Resumen(estudiantes2)
-        esperado2 = "<Mat:7.5, Len:4.5, NSE:6.5, Rural:0.25, Estado:0.75, N:4>"
+        esperado2 = "<Mat:7.50, Len:4.50, NSE:6.50, Rural:0.25, Estado:0.75, N:4>"
         self.assertEqual(repr(r2), esperado2)
 
     def test_eq_true(self):
@@ -212,7 +212,7 @@ class TestResumen(unittest.TestCase):
             Estudiante('SFE', 9.99232, 0.01340202, 10.01912121, 'urbano', 'privado'),
         ]
         r = Resumen(estudiantes)
-        esperado = "<Mat:9.99, Len:0.01, NSE:10.02, Rural:0.9, Estado:0.1, N:10>"
+        esperado = "<Mat:9.99, Len:0.01, NSE:10.02, Rural:0.90, Estado:0.10, N:10>"
         self.assertEqual(repr(r), esperado)
         
         estudiantes2: list[Estudiante] = [
@@ -228,7 +228,7 @@ class TestResumen(unittest.TestCase):
             Estudiante('SFE', 8.56789, 7.43210, 5.98765, 'urbano', 'estatal'),
         ]
         r2 = Resumen(estudiantes2)
-        esperado2 = "<Mat:8.57, Len:7.43, NSE:5.99, Rural:0.1, Estado:0.8, N:10>"
+        esperado2 = "<Mat:8.57, Len:7.43, NSE:5.99, Rural:0.10, Estado:0.80, N:10>"
         self.assertEqual(repr(r2), esperado2)
         
         estudiantes3: list[Estudiante] = [
@@ -244,7 +244,7 @@ class TestResumen(unittest.TestCase):
             Estudiante('SFE', 0.00123, 0.00456, 0.00789, 'urbano', 'estatal'),
         ]
         r3 = Resumen(estudiantes3)
-        esperado3 = "<Mat:0.0, Len:0.0, NSE:0.01, Rural:0.3, Estado:0.2, N:10>"
+        esperado3 = "<Mat:0.00, Len:0.00, NSE:0.01, Rural:0.30, Estado:0.20, N:10>"
         self.assertEqual(repr(r3), esperado3)
 
     def test_eq_true_muchos_redondeos(self):

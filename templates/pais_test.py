@@ -27,7 +27,7 @@ class TestPais(unittest.TestCase):
 
     def test_resumen_provincia(self):
         r = p.resumen_provincia('SFE')
-        esperado = '<Mat:458.5, Len:507.46, NSE:0.09, Rural:0.0, Estado:1.0, N:3>'
+        esperado = '<Mat:458.50, Len:507.46, NSE:0.09, Rural:0.00, Estado:1.00, N:3>'
         self.assertEqual(repr(r), esperado)
 
         r2 = p.resumen_provincia('ETR')
@@ -42,11 +42,11 @@ class TestPais(unittest.TestCase):
         rp = p.resumenes_pais()
         self.assertIn('SFE', rp)
         self.assertEqual(len(rp), 5)
-        self.assertEqual(repr(rp['ETR']), '<Mat:405.52, Len:473.92, NSE:1.08, Rural:0.0, Estado:0.0, N:1>')
-        self.assertEqual(repr(rp['MZA']), '<Mat:454.02, Len:489.1, NSE:0.29, Rural:0.0, Estado:1.0, N:4>')
-        self.assertEqual(repr(rp['SFE']), '<Mat:458.5, Len:507.46, NSE:0.09, Rural:0.0, Estado:1.0, N:3>')
-        self.assertEqual(repr(rp['SDE']), '<Mat:636.44, Len:728.6, NSE:-1.65, Rural:1.0, Estado:1.0, N:2>')
-        self.assertEqual(repr(rp['TUC']), '<Mat:341.45, Len:447.09, NSE:-0.52, Rural:1.0, Estado:1.0, N:2>')
+        self.assertEqual(repr(rp['ETR']), '<Mat:405.52, Len:473.92, NSE:1.08, Rural:0.00, Estado:0.00, N:1>')
+        self.assertEqual(repr(rp['MZA']), '<Mat:454.02, Len:489.10, NSE:0.29, Rural:0.00, Estado:1.00, N:4>')
+        self.assertEqual(repr(rp['SFE']), '<Mat:458.50, Len:507.46, NSE:0.09, Rural:0.00, Estado:1.00, N:3>')
+        self.assertEqual(repr(rp['SDE']), '<Mat:636.44, Len:728.60, NSE:-1.65, Rural:1.00, Estado:1.00, N:2>')
+        self.assertEqual(repr(rp['TUC']), '<Mat:341.45, Len:447.09, NSE:-0.52, Rural:1.00, Estado:1.00, N:2>')
 
     def test_resumen_pais_vacio(self):
         rp_vacio = p_vacio.resumenes_pais()

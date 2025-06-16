@@ -18,7 +18,7 @@ class Estudiante:
         Devuelve: Un string con las caracteristicas del estudiante: su puntaje en matematica, seguido del puntaje de lengua, seguido de su puntaje de NSE (todos los puntajes con 2 decimales maximo), luego el ambito de la escuela, el sector y provincia de la misma.
         Modifica: nada.
         '''
-        return (f"<Mat:{round(self.puntaje_matematica, 2)}, " f"Len:{round(self.puntaje_lengua, 2)}, " f"NSE:{round(self.puntaje_nse, 2)}, " f"{self.ambito}, {self.sector}, {self.provincia}>")
+        return (f"<Mat:{self.puntaje_matematica:.2f}, " f"Len:{self.puntaje_lengua:.2f}, " f"NSE:{self.puntaje_nse:.2f}, " f"{self.ambito}, {self.sector}, {self.provincia}>")
     
     def __eq__(self, other) -> bool:
         '''
